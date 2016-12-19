@@ -4,6 +4,7 @@ var User = require('./user');
 
 var schema = new Schema({
 	content: {type: String, required: true},
+	title: {type: String, required: true},
 	user: {type: Schema.Types.ObjectId, ref: 'User'}	
 });
 

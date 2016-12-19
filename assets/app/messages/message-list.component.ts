@@ -26,6 +26,7 @@ export class MessageListComponent implements OnInit {
 			.subscribe(
 				(messages: Message[]) => {
 					this.messages = messages;
+					console.log(this.messages);
 				}
 			);
 		}

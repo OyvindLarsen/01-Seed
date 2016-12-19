@@ -5,6 +5,9 @@ var jwt = require('jsonwebtoken');
 
 var User = require('../models/user');
 
+
+
+
 router.post('/', function (req, res, next) {
     var user = new User ({
     	firstName: req.body.firstName,
@@ -57,6 +60,24 @@ router.post('/signin', function(req, res, next) {
         });
     });
 });
+
+router.get('/profile', function (req, res, next) {
+     var decoded = jwt.decode(req.query.token);
+     User.findById(decoded.user._id, function(err, user){
+          if (err) {
+               return res.status(500).json({
+                    title: 'An Error occurred',
+                    error: err 
+               });
+          }
+          res.status(200).json({
+                message: 'success',
+                obj: user
+            });
+          
+     });
+ 
+ });
 
 
 

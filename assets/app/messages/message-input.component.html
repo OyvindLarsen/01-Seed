@@ -5,6 +5,13 @@
 			<label for="content">Melding</label>
 			<input 	type="text" 
 					class="form-control" 
+					id="title" 
+					placeholder="Tittel"
+					[ngModel]="message?.title"
+					name="title"
+					required>
+			<input 	type="text" 
+					class="form-control" 
 					id="content" 
 					placeholder="Din melding"
 					[ngModel]="message?.content"

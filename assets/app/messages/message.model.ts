@@ -1,14 +1,20 @@
 export class Message {
 	content: string;
-	username: string;
+	firstName: string;
+	lastName: string;
 	messageId?: string;
 	userId?: string;
+	title?: string;
 
-	constructor(content: string, username: string, messageId?: string, userId?: string) {
+
+
+	constructor(content: string, firstName: string, lastName: string, messageId?: string, userId?: string, title?: string) {
 		this.content = content;
-		this.username = username;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.messageId = messageId;
 		this.userId = userId;
+		this.title = title;
 
 	}
 }

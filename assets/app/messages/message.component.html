@@ -1,15 +1,19 @@
 
-	<article class="panel panel-default" >
+	<article class="panel panel-primary" >
+		<div class="panel-heading">
+			<h3 class="panel-title">{{ message.title }}</h3>
+		</div>
 		<div class="panel-body">
 			{{ message.content }}
 		</div>
 		<footer class="panel-footer">
 			<div class="author">
-			{{ message.username}}
+			{{ message.firstName}} {{ message.lastName}}
 			</div>
-			<div class="config" *ngIf="belongsToUser()">
+		<div class="config" *ngIf="belongsToUser()">
 				<a (click)="onEdit()">Edit</a>
 				<a (click)="onDelete()">Delete</a>
 			</div>
 		</footer>
-	</article>
+	</article> 
+

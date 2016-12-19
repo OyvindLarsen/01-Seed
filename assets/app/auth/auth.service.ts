@@ -41,4 +41,21 @@ export class AuthService {
 	isLoggedIn() {
 		return localStorage.getItem('token') !== null;
 	}
+
+	getUser() {
+		const token = localStorage.getItem('token') 
+		? '?token=' + localStorage.getItem('token')
+		: '';
+		return this.http.get('http://localhost:3000/user/profile' + token)
+			.map((response: Response) => {
+				const user = response.json().obj;
+				const userU = new User(user.email, user.password, user.firstName, user.lastName);
+				return userU;
+			})
+			.catch((error: Response) => {
+				this.errorService.handleError(error.json());
+				return Observable.throw(error.json());
+			});
+	}
 }
+
