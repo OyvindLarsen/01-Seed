@@ -18,6 +18,8 @@ import { AuthService } from "./auth/auth.service";
 
 import { ErrorComponent } from "./errors/error.component";
 import { ErrorService } from "./errors/error.service";
+import { Ng2UploaderModule } from 'ng2-uploader';
+
 
 @NgModule({
     declarations: [
@@ -32,7 +34,8 @@ import { ErrorService } from "./errors/error.service";
         SigninComponent,
         SignupComponent,
         ErrorComponent,
-        UserComponent
+        UserComponent,
+        
 
 
     ],
@@ -41,7 +44,10 @@ import { ErrorService } from "./errors/error.service";
         FormsModule, 
         routing, 
         ReactiveFormsModule, 
-        HttpModule
+        HttpModule,
+        Ng2UploaderModule
+      
+
     ],
     providers: [AuthService, ErrorService],
     bootstrap: [AppComponent]
