@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -24,4 +24,12 @@ a.danger {
 
 input.ng-invalid.ng-touched {
   border: 1px solid red;
+}
+
+.navbar {
+	background-color:#4ec3cd;
+}
+
+.navbar-brand {
+	float:left;
 }

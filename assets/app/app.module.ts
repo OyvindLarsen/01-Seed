@@ -13,11 +13,12 @@ import { routing } from "./app.routing";
 import { LogoutComponent } from "./auth/logout.component";
 import { SigninComponent } from "./auth/signin.component";
 import { SignupComponent } from "./auth/signup.component";
-import { UserComponent } from "./auth/user.component";
+import { UserComponent } from "./user/user.component";
 import { AuthService } from "./auth/auth.service";
 
 import { ErrorComponent } from "./errors/error.component";
 import { ErrorService } from "./errors/error.service";
+import { UserService } from "./user/user.service";
 import { Ng2UploaderModule } from 'ng2-uploader';
 
 
@@ -49,7 +50,7 @@ import { Ng2UploaderModule } from 'ng2-uploader';
       
 
     ],
-    providers: [AuthService, ErrorService],
+    providers: [AuthService, ErrorService, UserService],
     bootstrap: [AppComponent]
 })
 

@@ -5,6 +5,18 @@ var jwt = require('jsonwebtoken');
 var User = require('../models/user');
 var Message = require('../models/message');
 
+router.use('/', function (req, res, next){
+     jwt.verify(req.query.token, 'secret', function(err, decoded) {
+          if (err) {
+               return res.status(401).json({
+                    title: 'Not authenticated',
+                    error: err
+               });
+          }
+          next();
+     })
+});
+
 router.get('/', function (req, res, next) {
 	Message.find()
          .populate('user', 'firstName lastName')
@@ -23,17 +35,7 @@ router.get('/', function (req, res, next) {
 
 });
 
-router.use('/', function (req, res, next){
-     jwt.verify(req.query.token, 'secret', function(err, decoded) {
-          if (err) {
-               return res.status(401).json({
-                    title: 'Not authenticated',
-                    error: err
-               });
-          }
-          next();
-     })
-});
+
 
 router.post('/', function (req, res, next) {
      var decoded = jwt.decode(req.query.token);
