@@ -5,19 +5,18 @@ import { Component } from '@angular/core';
 	selector: 'app-header',
 	templateUrl: './header.component.html',
 	styles: [`
-    	.author {
-    		display: inline-block;
-    		font-style: italic;
-    		font-size:12px;
-    		width:80%;
-
-     	}
-     	.config {
-     		display: inline-block;
-    		text-align:right;
-    		font-size:12px;
-    		width:19%;
-     	}
+    	#headerLogo {
+    		height: 40px;
+    		margin-left: 10px;
+    		margin-top: 5px;
+    	}
+    	.navbar-header {
+    		height:100%;
+    	}
+    	h4{
+    		padding-top: 6px;
+    		padding-left: 7px;
+    	}
 
     `]
 
