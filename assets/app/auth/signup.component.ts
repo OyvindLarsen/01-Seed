@@ -19,6 +19,7 @@ export class SignupComponent implements OnInit{
 		const user = new User(
 			this.myForm.value.email, 
 			this.myForm.value.password,
+			"test.jpg",
 			this.myForm.value.firstName,
 			this.myForm.value.lastName
 		);
@@ -34,10 +35,10 @@ export class SignupComponent implements OnInit{
 		this.myForm = new FormGroup({
 			firstName: new FormControl(null, Validators.required),
 			lastName: new FormControl(null, Validators.required),
+			
 			email: new FormControl(null, [
 				Validators.required
 								]),
-
 			password: new FormControl(null, Validators.required)
 		});
 

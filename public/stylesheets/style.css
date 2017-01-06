@@ -1,6 +1,9 @@
 body {
   padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+        background: #F1F3FA;
+      
 }
 
 a {
@@ -33,3 +36,4 @@ input.ng-invalid.ng-touched {
 .float-left {
 	float:left;
 }
+

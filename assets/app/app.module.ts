@@ -20,7 +20,9 @@ import { ErrorComponent } from "./errors/error.component";
 import { ErrorService } from "./errors/error.service";
 import { UserService } from "./user/user.service";
 import { Ng2UploaderModule } from 'ng2-uploader';
-
+import { UserHeader } from "./user/user.header.component";
+import { DropdownModule } from "ng2-dropdown";
+import { UserPanel } from "./user/user.panel.component";
 
 @NgModule({
     declarations: [
@@ -36,6 +38,8 @@ import { Ng2UploaderModule } from 'ng2-uploader';
         SignupComponent,
         ErrorComponent,
         UserComponent,
+        UserHeader,
+        UserPanel
         
 
 
@@ -46,7 +50,8 @@ import { Ng2UploaderModule } from 'ng2-uploader';
         routing, 
         ReactiveFormsModule, 
         HttpModule,
-        Ng2UploaderModule
+        Ng2UploaderModule,
+        DropdownModule
       
 
     ],

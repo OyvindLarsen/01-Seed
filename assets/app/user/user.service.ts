@@ -20,7 +20,7 @@ export class UserService {
 		return this.http.get('http://localhost:3000/user/profile' + token)
 			.map((response: Response) => {
 				const user = response.json().obj;
-				const userU = new User(user.email, user.password, user.firstName, user.lastName);
+				const userU = new User(user.email, user.password, user.profilePic, user.firstName, user.lastName);
 				return userU;
 			})
 			.catch((error: Response) => {
@@ -28,5 +28,19 @@ export class UserService {
 				return Observable.throw(error.json());
 			});
 	}
+
+	saveProfilePic(data) {
+		const body = JSON.stringify(data);
+		const headers = new Headers({'Content-type': 'application/json'});
+		const token = localStorage.getItem('token') 
+		? '?token=' + localStorage.getItem('token')
+		: '';
+		return this.http.patch('http://localhost:3000/user/uploaded' + token, body, {headers: headers})
+			.map((response: Response) => response.json())
+			.catch((error: Response) => {
+				this.errorService.handleError(error.json());
+				return Observable.throw(error.json());
+			});
+	}
+
 }
- 

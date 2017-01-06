@@ -32,6 +32,7 @@
     "mongoose-unique-validator": "^1.0.2",
     "morgan": "~1.6.1",
     "multer": "^1.2.1",
+    "ng2-dropdown": "0.0.21",
     "ng2-uploader": "^1.6.2",
     "path": "^0.12.7",
     "reflect-metadata": "^0.1.3",

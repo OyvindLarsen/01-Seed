@@ -36,7 +36,10 @@ export class MessageService {
 	}
 
 	getMessages() {
-		return this.http.get('http://localhost:3000/message')
+		const token = localStorage.getItem('token') 
+		? '?token=' + localStorage.getItem('token')
+		: '';
+		return this.http.get('http://localhost:3000/message' + token)
 			.map((response: Response) => {
 				const messages = response.json().obj;
 				let transformedMessages: Message[] = [];

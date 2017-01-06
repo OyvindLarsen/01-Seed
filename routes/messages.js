@@ -5,6 +5,7 @@ var jwt = require('jsonwebtoken');
 var User = require('../models/user');
 var Message = require('../models/message');
 
+
 router.use('/', function (req, res, next){
      jwt.verify(req.query.token, 'secret', function(err, decoded) {
           if (err) {
@@ -18,7 +19,7 @@ router.use('/', function (req, res, next){
 });
 
 router.get('/', function (req, res, next) {
-	Message.find()
+ 	Message.find()
          .populate('user', 'firstName lastName')
           .exec(function(err, messages){
 			if (err) {

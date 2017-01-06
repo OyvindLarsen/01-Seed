@@ -1,6 +1,7 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { User } from './user.model';
 import { UserService } from './user.service';
+import { UserPanel } from './user.panel.component'
 
 @Component({
 	
@@ -10,38 +11,47 @@ import { UserService } from './user.service';
 
 export class UserComponent implements OnInit {
 	user: User;
+	
 	uploadFile: any;
 	hasBaseDropZoneOver: 
 	boolean = false;
 	options: Object = {
 	url: 'http://localhost:3000/user/upload'
-	  };
+	};
+	
 	sizeLimit = 2000000;
+	constructor(private userService: UserService) {}
 
 	handleUpload(data): void {
 	    if (data && data.response) {
 	      data = JSON.parse(data.response);
 	      this.uploadFile = data;
+	      this.successfullUpload();
 	    }
-	  }
 
-		fileOverBase(e:any):void {
-		this.hasBaseDropZoneOver = e;
-		}
+	}
 
-		beforeUpload(uploadingFile): void {
+	successfullUpload() {
+        this.userService.saveProfilePic(this.uploadFile[0])
+		.subscribe(
+			
+			result => console.log(result)
+
+		);
+    }
+
+	fileOverBase(e:any):void {
+	this.hasBaseDropZoneOver = e;
+	}
+
+	beforeUpload(uploadingFile): void {
 		if (uploadingFile.size > this.sizeLimit) {
 		  uploadingFile.setAbort();
 		  alert('File is too large');
 		}
-		}
-	
+	}
 	
 
-	constructor(private userService: UserService) {
-
-    }
-	
 	ngOnInit() {
 		this.userService.getUser()
 			 .subscribe(

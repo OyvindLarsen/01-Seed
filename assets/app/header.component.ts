@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth/auth.service';
+import { UserHeader } from "./user/user.header.component";
+import {DropdownModule} from "ng2-dropdown";
 
 @Component({
 	
@@ -17,10 +20,22 @@ import { Component } from '@angular/core';
     		padding-top: 6px;
     		padding-left: 7px;
     	}
-
+        .navbar {
+            height:50px;
+        }
     `]
 
 })
-export class HeaderComponent {
+
+
+export class HeaderComponent  {
+
+	constructor(private authService: AuthService) {}
+
+
+
+	isLoggedIn() {
+		return this.authService.isLoggedIn();
+	}
 
 }
