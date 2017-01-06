@@ -3,13 +3,12 @@ import { MessagesComponent } from "./messages/messages.component";
 import { AuthenticationComponent } from "./auth/authentication.component";
 import { AUTH_ROUTES } from "./auth/auth.routes";
 import { UserComponent } from "./user/user.component";
-
+import { USER_ROUTES } from "./user/user.routes";
 
 const APP_ROUTES: Routes = [
- { path: '', redirectTo: '/auth/signin', pathMatch: 'full' },
- { path: 'messages', component: MessagesComponent },
+ { path: '', redirectTo: '/user', pathMatch: 'full' },
  { path: 'auth', component: AuthenticationComponent, children: AUTH_ROUTES },
- { path: 'user', component: UserComponent}
+ { path: 'user', component: UserComponent, children: USER_ROUTES}
 
 ];
 

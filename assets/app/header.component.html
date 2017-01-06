@@ -31,8 +31,8 @@
 	          <a [routerLink]="['/user']" dropdown-open role="button" aria-haspopup="true" aria-expanded="false"><user-header></user-header><span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 	            <li routerLinkActive="active" *ngIf="isLoggedIn()"><a [routerLink]="['/user']">Profil</a></li>
-	            <li><a href="#">Innstillinger</a></li>
-	            <li routerLinkActive="active" *ngIf="isLoggedIn()"><a [routerLink]="['/messages']">Meldinger</a></li>
+	            <li routerLinkActive="active" *ngIf="isLoggedIn()"><a [routerLink]="['/user/settings']">Innstillinger</a></li>
+	            <li routerLinkActive="active" *ngIf="isLoggedIn()"><a [routerLink]="['/user/messages']">Meldinger</a></li>
 	            <li role="separator" class="divider"></li>
 	            <li routerLinkActive="active" *ngIf="isLoggedIn()"><a [routerLink]="['auth/logout']">Logg ut</a></li>
 	          </ul>

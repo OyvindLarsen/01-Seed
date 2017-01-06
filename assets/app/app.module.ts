@@ -23,6 +23,9 @@ import { Ng2UploaderModule } from 'ng2-uploader';
 import { UserHeader } from "./user/user.header.component";
 import { DropdownModule } from "ng2-dropdown";
 import { UserPanel } from "./user/user.panel.component";
+import { UserFeed } from "./user/user.feed.component";
+import { UserSettings } from "./user/user.setting.component";
+
 
 @NgModule({
     declarations: [
@@ -39,7 +42,9 @@ import { UserPanel } from "./user/user.panel.component";
         ErrorComponent,
         UserComponent,
         UserHeader,
-        UserPanel
+        UserPanel,
+        UserSettings,
+        UserFeed
         
 
 

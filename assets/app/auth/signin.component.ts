@@ -22,7 +22,7 @@ export class SigninComponent {
 				data => {
 					localStorage.setItem('token', data.token);
 					localStorage.setItem('userId', data.userId);
-					this.router.navigateByUrl('/');
+					this.router.navigateByUrl('/user/feed');
 				},
 				error => console.error(error)
 			);
