@@ -15,6 +15,7 @@ router.post('/', function (req, res, next) {
     var user = new User ({
     	firstName: req.body.firstName,
     	lastName: req.body.lastName,
+      profilePic: 'profile-placeholder.jpg',
     	password: bcrypt.hashSync(req.body.password, 10),   //ssl -encrypted data //bcrypthash , salted iterations
     	email: req.body.email
     });
@@ -65,7 +66,7 @@ router.post('/signin', function(req, res, next) {
 });
 
 router.get('/profile', function (req, res, next) {
-     var decoded = jwt.decode(req.query.token);
+    var decoded = jwt.decode(req.query.token);
      User.findById(decoded.user._id, function(err, user){
           if (err) {
                return res.status(500).json({
@@ -77,6 +78,23 @@ router.get('/profile', function (req, res, next) {
                 message: 'success',
                 obj: user
             });
+          
+          
+     });
+ 
+ });
+
+router.get('/profilepic', function (req, res, next) {
+    var decoded = jwt.decode(req.query.token);
+     User.findById(decoded.user._id, function(err, user){
+          if (err) {
+               return res.status(500).json({
+                    title: 'An Error occurred',
+                    error: err 
+               });
+          }
+          res.sendFile('/Desktop/01 Seed/uploads/' + user.profilePic);
+          
           
      });
  
@@ -97,6 +115,7 @@ const upload = multer({
   })
 });
  
+
 router.post('/upload', upload.any(), (req, res) => {
   res.json(req.files.map(file => {
     let ext = path.extname(file.originalname);
@@ -106,7 +125,37 @@ router.post('/upload', upload.any(), (req, res) => {
     }
   }));
 });
- 
+
+router.patch('/uploaded', function (req, res, next) {
+  var decoded = jwt.decode(req.query.token);
+     User.findById(decoded.user._id, function(err, user) {
+    if (err) {
+        return res.status(500).json({
+          title: 'An Error occurred',
+          error: err 
+        });
+      }
+      if(!user) {
+      return res.status(500).json({
+        title: 'No user found',
+        error: {message: 'user not found'} 
+        });
+      }
+      user.profilePic = req.body.filename;
+      user.save(function(err, result) {
+        if (err) {
+        return res.status(500).json({
+          title: 'An Error occurred',
+          error: err 
+        });
+        }
+        res.status(201).json({
+          message: 'Updated user',
+          obj: result
+        });
+      });
+  });
+});
 
 
 module.exports = router;
