@@ -106,12 +106,7 @@ import { UserService } from './user.service';
 			  margin-left: -2px;
 			}
 
-			/* Profile Content */
-			.profile-content {
-			  padding: 20px;
-			  background: #fff;
-			  min-height: 460px;
-			}
+	
     `]
 })
 export class UserPanel implements OnInit {

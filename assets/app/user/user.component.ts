@@ -2,11 +2,22 @@ import { Component, OnInit, Input} from '@angular/core';
 import { User } from './user.model';
 import { UserService } from './user.service';
 import { UserPanel } from './user.panel.component'
+import { MessagesComponent } from '../messages/messages.component'
 
 @Component({
 	
 	selector: 'app-profile',
-	templateUrl: 'user.component.html'
+	templateUrl: 'user.component.html',
+	styles: [`
+			/* Profile Content */
+			.profile-content {
+			  padding: 20px;
+			  background: #fff;
+			  min-height: 460px;
+			}
+
+	`]
+
 })
 
 export class UserComponent implements OnInit {
