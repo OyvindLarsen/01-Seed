@@ -9,10 +9,10 @@ var mongoose = require('mongoose');
 var appRoutes = require('./routes/app');
 var messageRoutes = require('./routes/messages');
 var userRoutes = require('./routes/user');
-
+var usersRoutes = require('./routes/users');
 
 var app = express();
-mongoose.connect('localhost:27017/node-angular');
+mongoose.connect('localhost:27012/node-angular');
 
 
 
@@ -29,6 +29,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -37,8 +38,11 @@ app.use(function (req, res, next) {
 });
 
 
+
+app.use('/static', express.static(path.join(__dirname, 'uploads')));
 app.use('/message', messageRoutes);
 app.use('/user', userRoutes);
+app.use('/users', usersRoutes);
 app.use('/', appRoutes);
 
 // catch 404 and forward to error handler

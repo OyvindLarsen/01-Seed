@@ -11,7 +11,7 @@ import { AuthService } from "./auth.service";
 	templateUrl: './signin.component.html'
 })
 export class SigninComponent {
-		myForm: FormGroup;
+	myForm: FormGroup;
 
 	constructor(private authService: AuthService, private router: Router) {}
 

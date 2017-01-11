@@ -25,7 +25,11 @@ import { DropdownModule } from "ng2-dropdown";
 import { UserPanel } from "./user/user.panel.component";
 import { UserFeed } from "./user/user.feed.component";
 import { UserSettings } from "./user/user.setting.component";
-
+import { UsersComponent } from "./users/users.component";
+import { UsersOutputComponent } from "./users/users-output.component";
+import { UsersService } from "./users/users.service";
+import { UserContacts } from "./user/user.contacts.component";
+import { ContactsPipe } from "./user/user-contacts.pipe";
 
 @NgModule({
     declarations: [
@@ -44,7 +48,11 @@ import { UserSettings } from "./user/user.setting.component";
         UserHeader,
         UserPanel,
         UserSettings,
-        UserFeed
+        UserFeed,
+        UsersComponent,
+        UsersOutputComponent,
+        UserContacts,
+        ContactsPipe
         
 
 
@@ -60,7 +68,7 @@ import { UserSettings } from "./user/user.setting.component";
       
 
     ],
-    providers: [AuthService, ErrorService, UserService],
+    providers: [AuthService, ErrorService, UserService, UsersService],
     bootstrap: [AppComponent]
 })
 

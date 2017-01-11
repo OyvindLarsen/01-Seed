@@ -46,14 +46,14 @@ router.post('/signin', function(req, res, next) {
         if (!user) {
             return res.status(401).json({
                 title: 'login failed',
-                error: {message: 'Invalid login credentials'}
+                error: {message: 'Invalid login 2credentials'}
             });
 
         }
         if (!bcrypt.compareSync(req.body.password, user.password)) {
             return res.status(401).json({
                 title: 'login failed',
-                error: {message: 'Invalid login credentials'}
+                error: {message: 'Invalid login 3credentials'}
             });
         }
         var token = jwt.sign({user: user}, 'secret', {expiresIn: 7200}); // tid tokenen er i bruk
@@ -64,6 +64,9 @@ router.post('/signin', function(req, res, next) {
         });
     });
 });
+
+
+
 
 router.get('/profile', function (req, res, next) {
     var decoded = jwt.decode(req.query.token);

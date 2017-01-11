@@ -9,12 +9,8 @@ import { MessagesComponent } from '../messages/messages.component'
 	selector: 'app-profile',
 	templateUrl: 'user.component.html',
 	styles: [`
-			/* Profile Content */
-			.profile-content {
-			  padding: 20px;
-			  background: #fff;
-			  min-height: 460px;
-			}
+			
+			
 
 	`]
 
@@ -27,7 +23,8 @@ export class UserComponent implements OnInit {
 	hasBaseDropZoneOver: 
 	boolean = false;
 	options: Object = {
-	url: 'http://localhost:3000/user/upload'
+	url: 'http://localhost:3000/user/upload',
+	authToken: localStorage.getItem('token')
 	};
 	
 	sizeLimit = 2000000;

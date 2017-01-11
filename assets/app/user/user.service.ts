@@ -20,7 +20,7 @@ export class UserService {
 		return this.http.get('http://localhost:3000/user/profile' + token)
 			.map((response: Response) => {
 				const user = response.json().obj;
-				const userU = new User(user.email, user.password, user.profilePic, user.firstName, user.lastName);
+				const userU = new User(user.email, user.password, user._id, user.profilePic, user.firstName, user.lastName, user.follow);
 				return userU;
 			})
 			.catch((error: Response) => {
@@ -42,5 +42,6 @@ export class UserService {
 				return Observable.throw(error.json());
 			});
 	}
+
 
 }

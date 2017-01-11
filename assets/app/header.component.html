@@ -25,6 +25,7 @@
 	        
 	        <li routerLinkActive="active" *ngIf="!isLoggedIn()"><a [routerLink]="['auth/signup']">Signup</a></li>
 			<li routerLinkActive="active" *ngIf="!isLoggedIn()"><a [routerLink]="['auth/signin']">Signin</a></li>
+			<li routerLinkActive="active" *ngIf="isLoggedIn()"><a [routerLink]="['/users']">Brukere</a></li>
 	       <li routerLinkActive="active" *ngIf="isLoggedIn()"><a>Kunnskapsdatabase</a></li>
 	       <li routerLinkActive="active" *ngIf="isLoggedIn()"><a>Kurskalender</a></li>
 	        <li class="dropdown" dropdown [dropdownToggle]="false" *ngIf="isLoggedIn()">
